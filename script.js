@@ -92,7 +92,7 @@ captureBtn.addEventListener("click", () => {
   }
 
   // Sembunyikan filter saat capture
-  document.querySelectorAll('#filterSelect, .dropdown')
+  document.querySelectorAll('#filterSelect, .dropdown, #LoadingText')
     .forEach(el => el.style.display = 'none');
 
   startCapture(() => {
@@ -161,7 +161,7 @@ nextBtn.onclick = () => {
     captureBtn.style.display = "block";
 
     // Tampilkan filter lagi
-    document.querySelectorAll('#filterSelect, .dropdown, #loadingText')
+    document.querySelectorAll('#filterSelect, .dropdown')
       .forEach(el => el.style.display = 'flex');
 
   } else {
@@ -175,7 +175,7 @@ nextBtn.onclick = () => {
 // =========================
 function generateFinal() {
 
-  document.querySelectorAll('.title, .title-bawah, .subtitle, #filterSelect, .dropdown, #loadingText')
+  document.querySelectorAll('.title, .title-bawah, .subtitle, #filterSelect, .dropdown')
     .forEach(el => el.style.display = 'none');
   document.querySelector('#loadingText').style.display = 'flex';
 
@@ -260,4 +260,5 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
