@@ -112,7 +112,8 @@ captureBtn.addEventListener("click", () => {
     cameraWrapper.style.display = "none";
     captureBtn.style.display = "none";
 
-    filterContainer.style.display = "flex";
+    const elementsToHide = document.querySelectorAll('#filterSelect, .dropdown');
+    elementsToHide.forEach(el => el.style.display = 'none');
   });
 });
 
@@ -126,7 +127,8 @@ retakeBtn.onclick = () => {
   cameraWrapper.style.display = "block";
   captureBtn.style.display = "block";
 
-  filterContainer.style.display = "flex";
+  const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
+  elementsToShow.forEach(el => el.style.display = ''
 };
 
 
@@ -146,7 +148,8 @@ nextBtn.onclick = () => {
     cameraWrapper.style.display = "block";
     captureBtn.style.display = "block";
 
-    filterContainer.style.display = "flex";
+    const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
+    elementsToShow.forEach(el => el.style.display = '');
   } else {
     generateFinal();
   }
@@ -239,6 +242,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
