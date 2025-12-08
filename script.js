@@ -102,50 +102,48 @@ tempCtx.restore();
 
     lastCapturedImage = tempCanvas;
 
+     // SIMPAN LANGSUNG BERDASARKAN STEP
+    photos[step - 1] = tempCanvas;
+    photosFilters[step - 1] = currentFilter
+
     previewCanvas.width = tempCanvas.width;
     previewCanvas.height = tempCanvas.height;
     previewCanvas.getContext("2d").drawImage(tempCanvas, 0, 0);
-
-    cameraWrapper.style.display = "none";
-    captureBtn.style.display = "none";
 
      // Hide elemen lain (judul, subtitle, dropdown filter)
     const elementsToHide = document.querySelectorAll('#filterSelect, .dropdown');
     elementsToHide.forEach(el => el.style.display = 'none');
 
     previewContainer.style.display = "block";
+    cameraWrapper.style.display = "none";
+    captureBtn.style.display = "none";
   });
 });
 
 
 retakeBtn.onclick = () => {
-  previewContainer.style.display="none";
-  cameraWrapper.style.display="block";
-  captureBtn.style.display="block";
+  photos[step - 1] = null;
+  photosFilters[step - 1] = null;
 
-  // Hapus foto terakhir jika retake
-  const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
-  elementsToShow.forEach(el => el.style.display = '');
-
-  photos.pop();
-  photosFilters.pop();
+  lastCapturedImage = null;
+  previewContainer.style.display = "none";
+  cameraWrapper.style.display = "block";
+  captureBtn.style.display = "block";
 };
 
 nextBtn.onclick = () => {
-  if (lastCapturedImage) {
-    photos.push(lastCapturedImage);
-    photosFilters.push(currentFilter);
-}
-  previewContainer.style.display="none";
+  if (!photos[step - 1]) {
+    alert("Ambil foto dulu!");
+    return;
+  }
 
-  if(step<3){
+  previewContainer.style.display = "none";
+
+  if (step < 3) {
     step++;
-    captureBtn.textContent="Ambil Foto";
-    captureBtn.style.display="block";
-    cameraWrapper.style.display="block";
-
-    const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
-    elementsToShow.forEach(el => el.style.display = '');
+    cameraWrapper.style.display = "block";
+    captureBtn.style.display = "block";
+    lastCapturedImage = null;
   } else {
     generateFinal();
   }
@@ -235,6 +233,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
