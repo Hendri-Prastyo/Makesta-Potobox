@@ -305,6 +305,7 @@ video {
 
   #camera-wrapper, #previewCanvas {
     aspect-ratio: 768 / 479;
+    height: auto;
   }
 
   #lyrics {
@@ -343,6 +344,7 @@ body {
 
   #camera-wrapper, #previewCanvas {
     aspect-ratio: 768 / 479;
+    height: auto;
   }
 
   #filterSelect {
@@ -355,3 +357,4 @@ body {
     justify-content: center;
   }
 }
+
