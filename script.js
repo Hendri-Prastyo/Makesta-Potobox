@@ -53,7 +53,14 @@ function startCapture(callback){
     setTimeout(()=>flash.style.opacity=0,180);
     shutterSound.currentTime=0;
     shutterSound.play();
-    setTimeout(()=>callback(),200);
+    
+    // TUNGGU FRAME KAMERA SIAP
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        callback();
+      });
+    });
+    
   });
 }
 
@@ -228,6 +235,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
