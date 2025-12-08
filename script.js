@@ -75,46 +75,45 @@ filterSelect.addEventListener("change", () => {
 });
 
 
-// Capture foto
+// ============================
+//  CAPTURE FOTO
+// ============================
 captureBtn.addEventListener("click", () => {
-  // Play music jika belum play
-  if(bgMusic.paused){
-    bgMusic.play().catch(() => {
-      console.log("Klik user diperlukan untuk play music");
-    });
+
+  if (bgMusic.paused) {
+    bgMusic.play().catch(() => console.log("Klik user diperlukan untuk play music"));
   }
 
-   const elementsToHide = document.querySelectorAll('.filter-buttons, .dropdown');
-  elementsToHide.forEach(el => el.style.display = 'none');
-
-  // Lanjut proses capture
+  // Start countdown dan ambil foto
   startCapture(() => {
+
+    // Buat canvas sementara
     const tempCanvas = document.createElement("canvas");
     tempCanvas.width = video.videoWidth;
     tempCanvas.height = video.videoHeight;
-    
-    const tempCtx = tempCanvas.getContext("2d");
-    tempCtx.save();
-    tempCtx.translate(tempCanvas.width, 0);
-    tempCtx.scale(-1, 1);
-    tempCtx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
-    tempCtx.restore();
 
+    const ctx = tempCanvas.getContext("2d");
 
+    // Mirror foto agar tidak terbalik
+    ctx.save();
+    ctx.translate(tempCanvas.width, 0);
+    ctx.scale(-1, 1);
+    ctx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
+    ctx.restore();
+
+    // Simpan foto ke variable
     lastCapturedImage = tempCanvas;
 
-     // SIMPAN LANGSUNG BERDASARKAN STEP
-    photos[step - 1] = tempCanvas;
-    photosFilters[step - 1] = currentFilter
-
+    // Tampilkan di preview
     previewCanvas.width = tempCanvas.width;
     previewCanvas.height = tempCanvas.height;
     previewCanvas.getContext("2d").drawImage(tempCanvas, 0, 0);
 
-     // Hide elemen lain (judul, subtitle, dropdown filter)
-    const elementsToHide = document.querySelectorAll('#filterSelect, .dropdown');
-    elementsToHide.forEach(el => el.style.display = 'none');
+    // Simpan langsung ke posisi yang benar
+    photos[step - 1] = tempCanvas;
+    photosFilters[step - 1] = currentFilter;
 
+    // Tampilkan preview, hide kamera
     previewContainer.style.display = "block";
     cameraWrapper.style.display = "none";
     captureBtn.style.display = "none";
@@ -122,17 +121,32 @@ captureBtn.addEventListener("click", () => {
 });
 
 
+
+// ============================
+//  RETAKE FOTO
+// ============================
 retakeBtn.onclick = () => {
+
+  // Hapus foto pada index saat ini
   photos[step - 1] = null;
   photosFilters[step - 1] = null;
 
   lastCapturedImage = null;
+
+  // Kembali ke kamera
   previewContainer.style.display = "none";
   cameraWrapper.style.display = "block";
   captureBtn.style.display = "block";
 };
 
+
+
+// ============================
+//  NEXT (MENUJU FRAME BERIKUTNYA)
+// ============================
 nextBtn.onclick = () => {
+
+  // Cek apakah foto untuk step ini sudah ada
   if (!photos[step - 1]) {
     alert("Ambil foto dulu!");
     return;
@@ -140,15 +154,20 @@ nextBtn.onclick = () => {
 
   previewContainer.style.display = "none";
 
+  // Kalau masih di step 1 atau 2 → lanjut ke step berikutnya
   if (step < 3) {
     step++;
     cameraWrapper.style.display = "block";
     captureBtn.style.display = "block";
     lastCapturedImage = null;
-  } else {
+  } 
+  
+  // Kalau sudah 3 foto → generate final image
+  else {
     generateFinal();
   }
 };
+
 
 // Generate final
 function generateFinal(){
@@ -234,6 +253,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
