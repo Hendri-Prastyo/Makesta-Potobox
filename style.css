@@ -280,21 +280,16 @@ video {
 #loadingText {
   display: none;
   position: fixed;
-  top:10%; 
+  transform: translate(-50%, -50%);
   z-index: 99999;
 
-  transform: translate(-50%, -50%);
-  /* Style bubble */
   color: white;
   font-size: 10px;
   font-weight: 600;
-  padding: 15px 25px;
+  padding: 10px 20px;
   border-radius: 12px;
-
-  /* Tambah background transparan jika perlu
-  background: rgba(0,0,0,0.3);
-  */
 }
+
 
 @keyframes scrollLyrics {
   from { transform: translateX(0%); }
@@ -373,15 +368,11 @@ body {
     justify-content: center;
   }
 
-  #loadingText {
-    font-size: 9px;
-    padding: 10px 18px;
-  }
-
   .result-area p {
     font-size: 10px;
   }
 }
+
 
 
 
