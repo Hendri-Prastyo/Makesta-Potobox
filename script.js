@@ -177,7 +177,9 @@ function generateFinal() {
 
   document.querySelectorAll('.title, .title-bawah, .subtitle, #filterSelect, .dropdown')
     .forEach(el => el.style.display = 'none');
-  document.querySelector('#loadingText').style.display = 'flex';
+
+  const loadingText = document.getElementById('loadingText');
+  if (loadingText) loadingText.style.display = 'flex';
 
   canvas.width = 1080;
   canvas.height = 1920;
@@ -231,10 +233,10 @@ function generateFinal() {
     document.getElementById("result").src = canvas.toDataURL("image/png");
     document.getElementById("result-area").style.display = "block";
     document.getElementById("result-area").classList.add("show");
-  };
 
-  cameraWrapper.style.display = "none";
-  document.querySelector('#loadingText').style.display = 'none';
+    if (loadingText) loadingText.style.display = 'none';
+    if (cameraWrapper) cameraWrapper.style.display = 'none';
+  };
 }
 
 // =========================
@@ -261,6 +263,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
