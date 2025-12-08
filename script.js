@@ -133,7 +133,6 @@ retakeBtn.onclick = () => {
 
 
 
-
 nextBtn.onclick = () => {
 
   if (!photos[step - 1]) {
@@ -243,28 +242,3 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
