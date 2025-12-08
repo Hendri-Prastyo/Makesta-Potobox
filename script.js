@@ -83,13 +83,13 @@ captureBtn.addEventListener("click", () => {
   // Lanjut proses capture
   startCapture(() => {
     const tempCanvas = document.createElement("canvas");
-    tempCanvas.width = video.videoWidth;
-    tempCanvas.height = video.videoHeight;
+    tempCanvas.width = frameW;
+    tempCanvas.height = frameH;
     
     const tempCtx = tempCanvas.getContext("2d");
 tempCtx.save();
 tempCtx.scale(-1, 1); // flip horizontal supaya hasil foto normal
-tempCtx.drawImage(video, -tempCanvas.width, 0, tempCanvas.width, tempCanvas.height);
+tempCtx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
 tempCtx.restore();
 
 
@@ -228,3 +228,4 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
