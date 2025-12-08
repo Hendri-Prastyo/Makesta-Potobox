@@ -122,10 +122,11 @@ retakeBtn.onclick = () => {
 
   photos.pop();
   photosFilters.pop();
+
+  lastCapturedImage = null; 
 };
 
 nextBtn.onclick = () => {
-  photos.push(lastCapturedImage);
   previewContainer.style.display="none";
 
   if(step<3){
@@ -225,4 +226,5 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
