@@ -114,6 +114,10 @@ tempCtx.restore();
     elementsToHide.forEach(el => el.style.display = 'none');
 
     previewContainer.style.display = "block";
+
+    // Simpan foto dan filter
+    photos.push(lastCapturedImage);
+    photosFilters.push(currentFilter);
   });
 });
 
@@ -129,13 +133,10 @@ retakeBtn.onclick = () => {
 
   photos.pop();
   photosFilters.pop();
-
-  lastCapturedImage = null;  
 };
 
 nextBtn.onclick = () => {
-  if (lastCapturedImage) photos.push(lastCapturedImage);
-  
+  photos.push(lastCapturedImage);
   previewContainer.style.display="none";
 
   if(step<3){
@@ -235,6 +236,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
