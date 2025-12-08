@@ -160,7 +160,6 @@ video {
 
 #result-area p {
     margin-top: 2px;
-    width: 390px;
     text-align: center;
     align-items: center;
 }
@@ -371,7 +370,8 @@ body {
   }
 
   #loadingText {
-    font-size: 10px;
+    font-size: 8px;
+    max-width: 300px;
   }
 
   .result-area p {
@@ -379,6 +379,7 @@ body {
     max-width:300px;
   }
 }
+
 
 
 
