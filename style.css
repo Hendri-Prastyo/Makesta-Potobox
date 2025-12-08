@@ -281,13 +281,12 @@ video {
 #loadingText {
   display:none;
   position: fixed;
-  top: 10%;
+  top: 5%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-70%, -70%);
   color: white;
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 600;
-  background: rgba(0,0,0,0.6);
   padding: 15px 25px;
   border-radius: 12px;
   z-index: 99999;
@@ -371,6 +370,7 @@ body {
     justify-content: center;
   }
 }
+
 
 
 
