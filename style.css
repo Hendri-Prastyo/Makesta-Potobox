@@ -370,15 +370,15 @@ body {
   }
 
   #loadingText {
+    top: 30%;
     font-size: 8px;
-    max-width: 300px;
   }
 
   .result-area p {
     font-size: 10px;
-    max-width:300px;
   }
 }
+
 
 
 
