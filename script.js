@@ -127,9 +127,10 @@ retakeBtn.onclick = () => {
   cameraWrapper.style.display = "block";
   captureBtn.style.display = "block";
 
-   // tampilkan menu filter lagi
   const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
-  elementsToShow.forEach(el => el.style.display = 'flex');
+  elementsToShow.forEach(el => {
+    el.style.removeProperty('display');  // <--- FIX PALING PASTI
+  });
 };
 
 
@@ -150,7 +151,9 @@ nextBtn.onclick = () => {
     captureBtn.style.display = "block";
 
     const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
-    elementsToShow.forEach(el => el.style.display = 'flex');
+    elementsToShow.forEach(el => {
+      el.style.removeProperty('display');  // <--- FIX SAMA
+    });
   } else {
     generateFinal();
   }
@@ -243,6 +246,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
