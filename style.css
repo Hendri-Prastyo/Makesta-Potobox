@@ -278,7 +278,7 @@ video {
   background: rgba(255,255,255,0.2);
 }
 
-#loadingTeks {
+#loadingText {
   display:none;
   position: fixed;
   top: 50%;
@@ -371,6 +371,7 @@ body {
     justify-content: center;
   }
 }
+
 
 
 
