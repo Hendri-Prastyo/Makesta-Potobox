@@ -178,8 +178,16 @@ function generateFinal() {
   document.querySelectorAll('.title, .title-bawah, .subtitle, #filterSelect, .dropdown')
     .forEach(el => el.style.display = 'none');
 
+  // Tampilkan loadingText sebagai overlay full-screen
   const loadingText = document.getElementById('loadingText');
-  if (loadingText) loadingText.style.display = 'flex';
+  if (loadingText) {
+    loadingText.style.display = 'flex';
+    loadingText.style.position = 'fixed';
+    loadingText.style.top = '9%';
+    loadingText.style.left = '50%';
+    loadingText.style.transform = 'translate(-50%, -50%)';
+    loadingText.style.zIndex = '9999';
+  }
 
   canvas.width = 1080;
   canvas.height = 1920;
@@ -234,8 +242,11 @@ function generateFinal() {
     document.getElementById("result-area").style.display = "block";
     document.getElementById("result-area").classList.add("show");
 
-    if (loadingText) loadingText.style.display = 'none';
-    if (cameraWrapper) cameraWrapper.style.display = 'none';
+    // Delay kecil supaya browser sempat render loadingText sebelum disembunyikan
+    setTimeout(() => {
+      if (loadingText) loadingText.style.display = 'none';
+      if (cameraWrapper) cameraWrapper.style.display = 'none';
+    }, 50);
   };
 }
 
@@ -263,6 +274,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
