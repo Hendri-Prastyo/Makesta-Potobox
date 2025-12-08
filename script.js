@@ -161,7 +161,7 @@ nextBtn.onclick = () => {
     captureBtn.style.display = "block";
 
     // Tampilkan filter lagi
-    document.querySelectorAll('#filterSelect, .dropdown')
+    document.querySelectorAll('#filterSelect, .dropdown, #loadingText')
       .forEach(el => el.style.display = 'flex');
 
   } else {
@@ -175,8 +175,9 @@ nextBtn.onclick = () => {
 // =========================
 function generateFinal() {
 
-  document.querySelectorAll('.title, .title-bawah, .subtitle, #filterSelect, .dropdown')
+  document.querySelectorAll('.title, .title-bawah, .subtitle, #filterSelect, .dropdown, #loadingText')
     .forEach(el => el.style.display = 'none');
+  document.querySelector('#loadingText').style.display = 'flex';
 
   canvas.width = 1080;
   canvas.height = 1920;
@@ -259,3 +260,4 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
