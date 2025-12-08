@@ -128,9 +128,9 @@ retakeBtn.onclick = () => {
   captureBtn.style.display = "block";
 
   const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
-  elementsToShow.forEach(el => el.style.display = 'flex'); // <- FIX PENTING
+  elementsToShow.forEach(el => el.style.display = 'flex');
 };
-};
+
 
 
 nextBtn.onclick = () => {
@@ -242,4 +242,5 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
