@@ -185,8 +185,6 @@ function generateFinal() {
     loadingText.style.position = 'fixed';
     loadingText.style.top = '5%';
     loadingText.style.left = '50%';
-    loadingText.style.width = '360px';
-    loadingText.style.transform = 'translate(-35%, -35%)';
     loadingText.style.zIndex = '9999';
   }
 
@@ -275,6 +273,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
