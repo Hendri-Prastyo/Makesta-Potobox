@@ -370,14 +370,17 @@ body {
   }
 
   #loadingText {
-    top: 30%;
+    top: 15%;
     font-size: 8px;
+    width: 350px;
+    text-align: center;
   }
 
   .result-area p {
     font-size: 10px;
   }
 }
+
 
 
 
