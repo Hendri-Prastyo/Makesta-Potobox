@@ -75,16 +75,12 @@ filterSelect.addEventListener("change", () => {
 });
 
 
-// =========================
-// CAPTURE FOTO
-// =========================
 captureBtn.addEventListener("click", () => {
 
   if (bgMusic.paused) {
     bgMusic.play().catch(() => {});
   }
 
-  // Sembunyikan dropdown
   document.querySelectorAll('.dropdown').forEach(el => el.style.display = 'none');
 
   startCapture(() => {
@@ -93,29 +89,25 @@ captureBtn.addEventListener("click", () => {
     tempCanvas.width = video.videoWidth;
     tempCanvas.height = video.videoHeight;
 
-    const ctx = tempCanvas.getContext("2d");
+    const tctx = tempCanvas.getContext("2d"); // <-- pakai tctx, BUKAN ctx global
 
-    // *** BALIKIN PERSIS LOGIKA LAMA ***
-    // Video sudah mirror → hasil foto HARUS dibalik lagi agar normal
-    ctx.save();
-    ctx.translate(tempCanvas.width, 0);
-    ctx.scale(-1, 1);
-    ctx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
-    ctx.restore();
+    // Video live SUDAH mirror via CSS → foto HARUS dibalik supaya normal
+    tctx.save();
+    tctx.translate(tempCanvas.width, 0);
+    tctx.scale(-1, 1);
+    tctx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
+    tctx.restore();
 
-    // Simpan hasil foto terakhir
+    // Simpan
     lastCapturedImage = tempCanvas;
-
-    // Tampilkan preview gambar diam (BUKAN video)
-    previewCanvas.width = tempCanvas.width;
-    previewCanvas.height = tempCanvas.height;
-    previewCanvas.getContext("2d").drawImage(tempCanvas, 0, 0);
-
-    // Simpan ke array
     photos[step - 1] = tempCanvas;
     photosFilters[step - 1] = currentFilter;
 
     // Tampilkan preview
+    previewCanvas.width = tempCanvas.width;
+    previewCanvas.height = tempCanvas.height;
+    previewCanvas.getContext("2d").drawImage(tempCanvas, 0, 0);
+
     previewContainer.style.display = "block";
     cameraWrapper.style.display = "none";
     captureBtn.style.display = "none";
@@ -123,26 +115,18 @@ captureBtn.addEventListener("click", () => {
 });
 
 
-// =========================
-// RETAKE FOTO
-// =========================
 retakeBtn.onclick = () => {
-
-  // hapus foto step ini saja
   photos[step - 1] = null;
   photosFilters[step - 1] = null;
   lastCapturedImage = null;
 
-  // kembali ke kamera
   previewContainer.style.display = "none";
   cameraWrapper.style.display = "block";
   captureBtn.style.display = "block";
 };
 
 
-// =========================
-// NEXT STEP
-// =========================
+
 nextBtn.onclick = () => {
 
   if (!photos[step - 1]) {
@@ -155,14 +139,13 @@ nextBtn.onclick = () => {
   if (step < 3) {
     step++;
     lastCapturedImage = null;
-
     cameraWrapper.style.display = "block";
     captureBtn.style.display = "block";
-
   } else {
     generateFinal();
   }
 };
+
 
 
 
@@ -250,6 +233,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
