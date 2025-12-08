@@ -163,7 +163,6 @@ video {
     width: 300px;
     text-align: center;
     align-items: center;
-    padding-left: 65px;
 }
 
 /* Lyrics */
@@ -358,6 +357,7 @@ body {
     justify-content: center;
   }
 }
+
 
 
 
