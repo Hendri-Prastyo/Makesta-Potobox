@@ -93,6 +93,7 @@ tempCtx.drawImage(video, -tempCanvas.width, 0, tempCanvas.width, tempCanvas.heig
 tempCtx.restore();
 
 
+    lastCapturedImage = null;
     lastCapturedImage = tempCanvas;
 
     previewCanvas.width = tempCanvas.width;
@@ -122,9 +123,6 @@ retakeBtn.onclick = () => {
 
   photos.pop();
   photosFilters.pop();
-
-  lastCapturedImage = null; 
-  lastCapturedImage = tempCanvas;
 };
 
 nextBtn.onclick = () => {
@@ -228,6 +226,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
