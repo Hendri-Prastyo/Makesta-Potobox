@@ -234,8 +234,7 @@ function generateFinal() {
   };
 
   cameraWrapper.style.display = "none";
-  document.querySelectorAll('#filterSelect, .dropdown, #LoadingText')
-    .forEach(el => el.style.display = 'none');
+  document.querySelector('#loadingText').style.display = 'none';
 }
 
 // =========================
@@ -262,6 +261,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
