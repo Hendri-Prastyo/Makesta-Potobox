@@ -130,7 +130,7 @@ retakeBtn.onclick = () => {
   const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
   elementsToShow.forEach(el => el.style.display = 'flex'); // <- FIX PENTING
 };
-
+};
 
 
 nextBtn.onclick = () => {
@@ -242,3 +242,4 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
