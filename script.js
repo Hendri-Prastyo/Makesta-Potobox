@@ -179,19 +179,7 @@ function generateFinal() {
     .forEach(el => el.style.display = 'none');
 
   const loadingText = document.getElementById("loadingText");
-  const target = document.querySelector(".container");
-  
-  if (loadingText && target) {
-      const rect = target.getBoundingClientRect();
-  
-      const centerTop = rect.top + rect.height / 2;
-      const centerLeft = rect.left + rect.width / 2;
-  
-      loadingText.style.top = centerTop + "px";
-      loadingText.style.left = centerLeft + "px";
-  
-      loadingText.style.display = "flex";
-  }
+  loadingText.style.display = 'flex';
 
 
   canvas.width = 1080;
@@ -279,6 +267,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
