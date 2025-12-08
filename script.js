@@ -92,14 +92,7 @@ captureBtn.addEventListener("click", () => {
     tempCanvas.width = video.videoWidth;
     tempCanvas.height = video.videoHeight;
 
-    const ctx = tempCanvas.getContext("2d");
-
-    // Mirror foto agar tidak terbalik
-    ctx.save();
-    ctx.translate(tempCanvas.width, 0);
-    ctx.scale(-1, 1);
-    ctx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
-    ctx.restore();
+    const tempCtx = tempCanvas.getContext("2d"); tempCtx.save(); tempCtx.translate(tempCanvas.width, 0); tempCtx.scale(-1, 1); tempCtx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height); tempCtx.restore();
 
     // Simpan foto ke variable
     lastCapturedImage = tempCanvas;
@@ -253,6 +246,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
