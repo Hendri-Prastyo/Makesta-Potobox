@@ -78,40 +78,42 @@ filterSelect.addEventListener("change", () => {
 // ============================
 //  CAPTURE FOTO
 // ============================
+// CAPTURE FOTO
 captureBtn.addEventListener("click", () => {
 
   if (bgMusic.paused) {
     bgMusic.play().catch(() => console.log("Klik user diperlukan untuk play music"));
   }
 
-  // Start countdown dan ambil foto
   startCapture(() => {
 
-    // Buat canvas sementara
     const tempCanvas = document.createElement("canvas");
     tempCanvas.width = video.videoWidth;
     tempCanvas.height = video.videoHeight;
 
-    const tempCtx = tempCanvas.getContext("2d"); tempCtx.save(); tempCtx.translate(tempCanvas.width, 0); tempCtx.scale(-1, 1); tempCtx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height); tempCtx.restore();
+    const ctx = tempCanvas.getContext("2d");
 
-    // Simpan foto ke variable
+    // FIX: MIRROR YANG BENAR
+    ctx.save();
+    ctx.scale(-1, 1);
+    ctx.drawImage(video, -tempCanvas.width, 0, tempCanvas.width, tempCanvas.height);
+    ctx.restore();
+
     lastCapturedImage = tempCanvas;
 
-    // Tampilkan di preview
     previewCanvas.width = tempCanvas.width;
     previewCanvas.height = tempCanvas.height;
     previewCanvas.getContext("2d").drawImage(tempCanvas, 0, 0);
 
-    // Simpan langsung ke posisi yang benar
     photos[step - 1] = tempCanvas;
     photosFilters[step - 1] = currentFilter;
 
-    // Tampilkan preview, hide kamera
     previewContainer.style.display = "block";
     cameraWrapper.style.display = "none";
     captureBtn.style.display = "none";
   });
 });
+
 
 
 
@@ -246,6 +248,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
