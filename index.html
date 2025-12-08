@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potobox Online Strip 3 Foto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="flashOverlay"></div>
+  <audio id="shutterSound" src="shutter.wav"></audio>
+
+  <div class="container">
+    <h1 class="title">📸 Makesta V</h1>
+    <h1 class="title-bawah">Online Photobox</h1>
+    <p class="subtitle">Ambil 3 Momen terbaikmu!</p>
+
+    <!-- Kamera -->
+    <div id="camera-wrapper" class="camera-box">
+      <div id="countdown" class="hidden">3</div>
+      <video id="video" autoplay playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <div class="dropdown">
+        <p>Filter :</p>
+        <select id="filterSelect">
+        <option value="filter-none">Normal</option>
+        <option value="filter-sepia">Sepia</option>
+        <option value="filter-grayscale">Grayscale</option>
+        <option value="filter-saturate">Saturate</option>
+        <option value="filter-bright">Bright</option>
+        <option value="filter-contrast">Contrast</option>
+        <option value="filter-hue">Hue</option>
+        </select>
+    </div>
+
+
+    <!-- Preview -->
+    <div id="previewContainer" style="display:none;">
+      <canvas id="previewCanvas"></canvas>
+      <button id="retakeBtn" class="btn-reload">Foto Ulang</button>
+      <button id="nextBtn" class="btn-main">Lanjut</button>
+    </div>
+
+    <button id="capture-btn" class="btn-main">Ambil Foto</button>
+
+
+    <!-- Canvas final (tidak ditampilkan) -->
+    <canvas id="canvas" style="display:none;"></canvas>
+
+    <!-- Hasil akhir -->
+    <div id="result-area" style="display:none;">
+      <h2>Hasil Akhirmu</h2>
+      <p>Terima Kasih Telah Menggunakan Potobox Kami...</p>
+      <div class="photo-container">
+        <img id="result" />
+      </div>
+      <button id="download-btn" class="btn-download">Download Foto</button>
+      <button id="reload-btn" class="btn-reload" onclick="location.reload()">Ambil Ulang</button>
+    </div>
+  </div>
+
+  <audio id="bgMusic" src="Bgmusic.mp3" loop></audio>
+  <div id="lyrics">
+    <p>Rayakan Moment dan Tertawa Bersama Rekan Rekanita 💚🍃✨ Terima Kasih Atas Kunjunganya... 😍💚</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
