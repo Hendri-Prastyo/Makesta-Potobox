@@ -128,6 +128,8 @@ retakeBtn.onclick = () => {
 };
 
 nextBtn.onclick = () => {
+  if (lastCapturedImage) photos.push(lastCapturedImage);
+  
   previewContainer.style.display="none";
 
   if(step<3){
@@ -227,6 +229,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
