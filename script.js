@@ -179,25 +179,20 @@ function generateFinal() {
     .forEach(el => el.style.display = 'none');
 
   const loadingText = document.getElementById("loadingText");
-  const target = document.querySelector(".result-area");
+  const target = document.querySelector(".container");
   
   if (loadingText && target) {
-      // ambil posisi .result-area
       const rect = target.getBoundingClientRect();
   
-      // hitung titik tengah
       const centerTop = rect.top + rect.height / 2;
       const centerLeft = rect.left + rect.width / 2;
   
-      // set posisi overlay
-      loadingText.style.position = "fixed";
       loadingText.style.top = centerTop + "px";
       loadingText.style.left = centerLeft + "px";
-      loadingText.style.transform = "translate(-50%, -50%)";
   
-      // tampilkan
       loadingText.style.display = "flex";
   }
+
 
   canvas.width = 1080;
   canvas.height = 1920;
@@ -284,6 +279,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
