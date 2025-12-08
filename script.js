@@ -107,9 +107,6 @@ tempCtx.restore();
     elementsToHide.forEach(el => el.style.display = 'none');
 
     previewContainer.style.display = "block";
-    // Simpan foto dan filter
-    photos.push(lastCapturedImage);
-    photosFilters.push(currentFilter);
   });
 });
 
@@ -228,3 +225,4 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
