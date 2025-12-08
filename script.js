@@ -95,9 +95,9 @@ tempCtx.restore();
 
     lastCapturedImage = tempCanvas;
 
-    previewCanvas.width = tempCanvas.width;
-    previewCanvas.height = tempCanvas.height;
-    previewCanvas.getContext("2d").drawImage(tempCanvas, 0, 0);
+    previewCanvas.width = video.clientWidth;
+    previewCanvas.height = video.clientHeight;
+    previewCanvas.getContext("2d").drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, previewCanvas.width, previewCanvas.height);
 
     cameraWrapper.style.display = "none";
     captureBtn.style.display = "none";
@@ -228,4 +228,5 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
