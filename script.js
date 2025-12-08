@@ -183,8 +183,9 @@ function generateFinal() {
   if (loadingText) {
     loadingText.style.display = 'flex';
     loadingText.style.position = 'fixed';
-    loadingText.style.top = '9%';
+    loadingText.style.top = '5%';
     loadingText.style.left = '50%';
+    loadingText.style.width = '360px';
     loadingText.style.transform = 'translate(-50%, -50%)';
     loadingText.style.zIndex = '9999';
   }
@@ -274,6 +275,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
