@@ -285,14 +285,14 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  padding: 12px 20px;
+  background: rgba(0,0,0,0.3);
+  padding: 10px 20px;
   color: white;
-  border-radius: 15px;
-  font-size: 9px;
-  text-align: center;
-  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  white-space: nowrap; /* <-- supaya 1 baris */
 }
-
 
 @keyframes scrollLyrics {
   from { transform: translateX(0%); }
@@ -375,6 +375,7 @@ body {
     font-size: 10px;
   }
 }
+
 
 
 
