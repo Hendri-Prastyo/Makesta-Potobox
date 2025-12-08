@@ -48,7 +48,6 @@ video {
   width: 100%;         /* full wrapper */
   height: 100%;        /* full wrapper */
   object-fit: cover;    /* mengisi container */
-  transform: scaleX(-1); /* mirror */
   transform-origin: center center;
 }
 
@@ -358,5 +357,6 @@ body {
     justify-content: center;
   }
 }
+
 
 
