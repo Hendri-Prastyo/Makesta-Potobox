@@ -280,7 +280,7 @@ video {
 #loadingText {
   display: none;
   position: fixed;
-  inset: 0; /* = top:0; left:0; right:0; bottom:0 */
+  top:10%; 
   z-index: 99999;
 
   /* Centering */
@@ -290,7 +290,7 @@ video {
 
   /* Style bubble */
   color: white;
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 600;
   padding: 15px 25px;
   border-radius: 12px;
@@ -386,6 +386,7 @@ body {
     font-size: 10px;
   }
 }
+
 
 
 
