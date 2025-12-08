@@ -182,10 +182,6 @@ function generateFinal() {
   const loadingText = document.getElementById('loadingText');
   if (loadingText) {
     loadingText.style.display = 'flex';
-    loadingText.style.position = 'fixed';
-    loadingText.style.top = '5%';
-    loadingText.style.left = '50%';
-    loadingText.style.zIndex = '9999';
   }
 
   canvas.width = 1080;
@@ -273,6 +269,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
