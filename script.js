@@ -182,6 +182,7 @@ function generateFinal() {
   const loadingText = document.getElementById('loadingText');
   if (loadingText) {
     loadingText.style.display = 'flex';
+    loadingText.style.position = 'fixed';
   }
 
   canvas.width = 1080;
@@ -269,6 +270,7 @@ function getCSSFilter(className) {
     default: return "none";
   }
 }
+
 
 
 
