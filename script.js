@@ -124,6 +124,7 @@ retakeBtn.onclick = () => {
   photosFilters.pop();
 
   lastCapturedImage = null; 
+  lastCapturedImage = tempCanvas;
 };
 
 nextBtn.onclick = () => {
@@ -227,6 +228,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
