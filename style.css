@@ -369,7 +369,17 @@ body {
     width: 300px;
     justify-content: center;
   }
+
+  #loadingText {
+    font-size: 10px;
+  }
+
+  .result-area p {
+    font-size: 10px;
+    max-width:300px;
+  }
 }
+
 
 
 
