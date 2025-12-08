@@ -95,8 +95,9 @@ captureBtn.addEventListener("click", () => {
 
     // FIX: MIRROR YANG BENAR
     ctx.save();
+    ctx.translate(tempCanvas.width, 0);
     ctx.scale(-1, 1);
-    ctx.drawImage(video, -tempCanvas.width, 0, tempCanvas.width, tempCanvas.height);
+    ctx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
     ctx.restore();
 
     lastCapturedImage = tempCanvas;
@@ -248,6 +249,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
