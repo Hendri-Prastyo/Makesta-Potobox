@@ -290,6 +290,7 @@ video {
   border-radius: 15px;
   font-size: 9px;
   text-align: center;
+  white-space: nowrap;
 }
 
 
@@ -374,6 +375,7 @@ body {
     font-size: 10px;
   }
 }
+
 
 
 
