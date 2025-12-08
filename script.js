@@ -128,9 +128,8 @@ retakeBtn.onclick = () => {
   captureBtn.style.display = "block";
 
   const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
-  elementsToShow.forEach(el => {
-    el.style.removeProperty('display');  // <--- FIX PALING PASTI
-  });
+  elementsToShow.forEach(el => el.style.display = 'flex'); // <- FIX PENTING
+};
 };
 
 
@@ -151,9 +150,7 @@ nextBtn.onclick = () => {
     captureBtn.style.display = "block";
 
     const elementsToShow = document.querySelectorAll('#filterSelect, .dropdown');
-    elementsToShow.forEach(el => {
-      el.style.removeProperty('display');  // <--- FIX SAMA
-    });
+    elementsToShow.forEach(el => el.style.display = 'flex'); 
   } else {
     generateFinal();
   }
@@ -246,6 +243,7 @@ function getCSSFilter(className){
     default: return "none";
   }
 }
+
 
 
 
